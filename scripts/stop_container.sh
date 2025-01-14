@@ -2,5 +2,5 @@
 set -e
 
 # Stop the running container (if any)
-container_id = 'docker ps | aws -F " " '{print $1}''
-docker -rf $container_id
+container_id=$(docker ps -q)
+docker rm -f $container_id
